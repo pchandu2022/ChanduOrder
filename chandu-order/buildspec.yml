@@ -3,12 +3,15 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo Entered the build phase...
+      - echo Build started on `date`
+      - mvn test 
       - mvn clean package
   post_build:
     commands:
+      - echo Build completed on `date`
       - echo Build completed successfully
+      - mvn package
 artifacts:
   files:
-    - target/order-service.jar
-  discard-paths: yes 
+    - target/my-app-1.0-SNAPSHOT.jar
+  discard-paths: yes
